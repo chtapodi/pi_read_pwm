@@ -3,7 +3,6 @@
 
 import time
 import pigpio
-y
 
 
 class read_pwm :
