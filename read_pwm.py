@@ -6,7 +6,7 @@ import pigpio
 
 
 
-class read_pwm :
+class read_pwm(object) :
 	def __init__(self, receive_pin, average_length):
 
 		self.receive_pin=receive_pin
@@ -61,11 +61,14 @@ class read_pwm :
 			return sum(list_of_vals)/len(list_of_vals)
 
 	#returns the list of collected pwm values
-	def get_pwm_list() :
-		return self.pwm_list
+	def get_pwm_list(self) :
+		if (len(self.pwm_list)>1) :
+			return self.pwm_list
+		else :
+			return [None]
 
 	#updates the range over which values are averages
-	def set_average_value(val) :
+	def set_average_value(self,val) :
 		self.average_length=val;
 
 def main():
