@@ -3,9 +3,7 @@
 
 import time
 import pigpio
-import pickle
-import matplotlib.pyplot as plt
-
+y
 
 
 class read_pwm :
