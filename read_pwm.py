@@ -5,6 +5,7 @@ import time
 import pigpio
 
 
+
 class read_pwm :
 	def __init__(self, receive_pin, average_length):
 
@@ -24,8 +25,8 @@ class read_pwm :
 	#initializes receiption and callback
 	def init_listen(self) :
 		self.pio.set_mode(self.receive_pin, pigpio.INPUT)
-		print(self.pio.callback(self.receive_pin, pigpio.RISING_EDGE, self.rising_callback))
-		print(self.pio.callback(self.receive_pin, pigpio.FALLING_EDGE, self.falling_callback))
+		self.pio.callback(self.receive_pin, pigpio.RISING_EDGE, self.rising_callback)
+		self.pio.callback(self.receive_pin, pigpio.FALLING_EDGE, self.falling_callback)
 
 	#Callback function for the falling edge
 	def rising_callback(self, gpio, level, tick) :
